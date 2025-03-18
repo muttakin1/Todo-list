@@ -31,7 +31,7 @@ export default function App() {
         renderItem={({item}) => <Item title={item.title} />}
         keyExtractor={item => item.id}
       />
-      <Button title="Add new task " onPress={() => Alert.alert('Simple Button pressed')}/>
+      <Button title="Add new task" onPress={() => Alert.alert('Simple Button pressed')}/>
     </View>
   );
 }
