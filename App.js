@@ -12,7 +12,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="My Todo List">
         <Stack.Screen name="My Todo List" component={HomeScreen} style={styles.item}/>
-        <Stack.Screen name="New Task" component={NewTask} style={styles.item}/>
+        <Stack.Screen name="Add New Todo" component={NewTask} style={styles.item}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

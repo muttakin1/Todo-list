@@ -41,9 +41,7 @@ export default function HomeScreen({ navigation }) {
         keyExtractor={(item) => item.id}
       />
       <View style={styles.button}>
-
-        <FontAwesome.Button name="plus" onPress={() => navigation.navigate("New Task")}>Add New task</FontAwesome.Button>
-
+        <FontAwesome.Button name="plus" onPress={() => navigation.navigate("Add New Todo")}>Add New task</FontAwesome.Button>
       </View>
     </View>
   );
