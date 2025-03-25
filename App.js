@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, Button,Alert, FlatList } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./HomeScreen";
+import NewTask from "./NewTask";
 
 const Stack = createStackNavigator();
 
@@ -11,7 +12,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="My Todo List">
         <Stack.Screen name="My Todo List" component={HomeScreen} style={styles.item}/>
-        
+        <Stack.Screen name="New Task" component={NewTask} style={styles.item}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
