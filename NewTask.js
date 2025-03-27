@@ -3,31 +3,12 @@ import { Text, View, StyleSheet, Button, Alert, TextInput,Modal,Pressable } from
 import FontAwesome from "@expo/vector-icons/FontAwesome6";
 
 export default function HomeScreen({ navigation }) {
-  const [text, onChangeText] = React.useState("Useless Text");
-  const [text1, onChangeText1] = React.useState("Useless Text1");
-  const [modalVisible, setModalVisible] = React.useState(false);
+  const [text, onChangeText] = React.useState("My New Todo Title");
+  const [text1, onChangeText1] = React.useState("Description of new todo title");
+
   return (
     <View style={styles.container}>
 
-<Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-            setModalVisible(!modalVisible);
-          }}>
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}>
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
-            </View>
-          </View>
-        </Modal>
 
       <Text>Title</Text>
       <TextInput
@@ -44,9 +25,9 @@ export default function HomeScreen({ navigation }) {
         onChangeText={onChangeText1}
         value={text1}
         />
-    <View style={styles.button}>
-        <FontAwesome.Button name="xmark" onPress={() => navigation.navigate("My Todo List")}>Cancel</FontAwesome.Button>
-        <FontAwesome.Button name="save" onPress={() => setModalVisible(true)}>Save</FontAwesome.Button>
+    <View style={styles.buttons}>
+        <FontAwesome.Button style={styles.cancelButton} name="xmark" onPress={() => navigation.navigate("My Todo List")}>Cancel</FontAwesome.Button>
+        <FontAwesome.Button style={styles.saveButton} name="save" >Save</FontAwesome.Button>
     </View>
     
     </View>
@@ -71,10 +52,15 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
   },
-  button: {
-    paddingBottom: 50,
-    paddingHorizontal: 20,
+  buttons: {
+    display: 'flex',
+    flexDirection:'row',
+    flexWrap: 'nowrap',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+   
   },
+
   input: {
     height: 40,
     margin: 12,
