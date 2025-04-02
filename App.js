@@ -2,8 +2,8 @@ import * as React from "react";
 import { Text, View, StyleSheet, Button,Alert, FlatList } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import HomeScreen from "./HomeScreen";
-import NewTask from "./NewTask";
+import HomeScreen from "./src/HomeScreen";
+import NewTask from "./src/NewTask";
 
 const Stack = createStackNavigator();
 

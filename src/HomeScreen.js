@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState, useEffect }  from "react";
 import {
   Text,
   View,
@@ -7,7 +7,9 @@ import {
   Alert,
   FlatList,
 } from "react-native";
+import { useFocusEffect } from '@react-navigation/native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const DATA = [
@@ -33,12 +35,33 @@ const Item = ({ title }) => (
 
 export default function HomeScreen({ navigation }) {
 
+  const [todoList, setTodoList] = React.useState();
+
+  
+const getData = async () => {
+  try {
+    const value = await AsyncStorage.getItem('Todo');
+    if (value !== null) {
+      setTodoList(JSON.parse(value))
+    }
+  } catch (e) {
+    // error reading value
+  }
+};
+
+useFocusEffect(
+  React.useCallback(() => {
+    getData(); // Fetch latest data every time the screen is focused
+  }, [])
+);
+
+ 
   return (
     <View style={styles.container}>
       <FlatList
-        data={DATA}
+        data={todoList}
         renderItem={({ item }) => <Item title={item.title} />}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.title}
       />
       <View style={styles.button}>
         <FontAwesome.Button name="plus" onPress={() => navigation.navigate("Add New Todo")}>Add New task</FontAwesome.Button>
