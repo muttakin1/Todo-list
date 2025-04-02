@@ -69,7 +69,7 @@ export default function HomeScreen({ navigation }) {
           name="xmark"
           onPress={() => navigation.navigate("My Todo List")}
         >
-          Cancel
+          Back
         </FontAwesome.Button>
         <FontAwesome.Button
           style={styles.saveButton}
